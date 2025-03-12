@@ -1,0 +1,4 @@
+\newcommand{\BeamNormalRomNdofs}{${BEAMNORMALROMNDOFS}}
+\newcommand{\BeamNormalRomMaxModes}{${BEAMNORMALROMMAXMODES}}
+\newcommand{\BeamNormalRomAssembly}{${BEAMNORMALROMASSEMBLY}}
+\newcommand{\BeamNormalRomSolve}{${BEAMNORMALROMSOLVE}}

@@ -1,0 +1,76 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{bm}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\usepackage[active, tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+
+\input{./bamcolors.tex}
+
+\begin{document}
+\begin{tikzpicture}
+	\tikzstyle{every node}=[font=\normalsize]
+	\def\a{0.8cm}
+	% omega 1
+	\draw (0, 0) coordinate (S1) rectangle (2 * \a, 2 * \a) coordinate (E1) node[pos=0.25] {$\varOmega_1$};
+	\draw[dashed, BAMgrad020] (-0.1cm, -0.1cm) rectangle (2.1 * \a, 2.1 * \a) node[pos=1., above] {$\hat\varOmega_1$};
+	\draw (0, \a) -- (2 * \a, \a);
+	\draw (\a, 0) -- (\a, 2 * \a);
+	\draw[BAMred1, thick] (0, 2 * \a) -- (2 * \a, 2 * \a) -- (2 * \a, 0);
+	\draw[BAMblue2, thick] (0, 0) -- (0, 2 * \a);
+	\draw[BAMyellow1, thick] (0, 0) -- (2 * \a, 0);
+	% omega 2
+	\begin{scope}[xshift=3 * \a]
+		\draw (0, 0) rectangle (2 * \a, 3 * \a);
+		\draw[dashed, BAMgrad020] (-0.1cm, -0.1cm) rectangle (2.1 * \a, 3.1 * \a) node[pos=1., above] {$\hat\varOmega_{2}$};
+		\draw (0, \a) -- (2 * \a, \a);
+		\draw (0, 2 * \a) -- (2 * \a, 2 * \a);
+		\draw (\a, 0) -- (\a, 3 * \a);
+		\node at (0.5 * \a, 1.5 * \a) {$\varOmega_{2}$};
+		\draw[BAMred1, thick] (0, 3 * \a) -- (2 * \a, 3 * \a) -- (2 * \a, 0);
+		\draw[BAMblue2, thick] (0, 0) -- (0, 3 * \a);
+		\draw[BAMyellow1, thick] (0, 0) -- (2 * \a, 0);
+	\end{scope}
+	% omega 3
+	\begin{scope}[xshift=6 * \a]
+		\draw (0, 0) rectangle (2 * \a, 3 * \a);
+		\draw[dashed, BAMgrad020] (-0.1cm, -0.1cm) rectangle (2.1 * \a, 3.1 * \a) node[pos=1., above] {$\hat\varOmega_{3}$};
+		\draw (0, \a) -- (2 * \a, \a);
+		\draw (0, 2 * \a) -- (2 * \a, 2 * \a);
+		\draw (\a, 0) -- (\a, 3 * \a);
+		\node at (0.5 * \a, 1.5 * \a) {$\varOmega_{3}$};
+		\draw[BAMred1, thick] (0, 3 * \a) -- (2 * \a, 3 * \a) -- (2 * \a, 0) -- (0, 0);
+		\draw[BAMblue2, thick] (0, 0) -- (0, 3 * \a);
+	\end{scope}
+	% omega 4
+	\begin{scope}[xshift=9 * \a]
+		\draw (0, 0) rectangle (2 * \a, 3 * \a);
+		\draw[dashed, BAMgrad020] (-0.1cm, -0.1cm) rectangle (2.1 * \a, 3.1 * \a) node[pos=1., above] {$\hat\varOmega_{4}$};
+		\draw (0, \a) -- (2 * \a, \a);
+		\draw (0, 2 * \a) -- (2 * \a, 2 * \a);
+		\draw (\a, 0) -- (\a, 3 * \a);
+		\node at (0.5 * \a, 1.5 * \a) {$\varOmega_{4}$};
+		\draw[BAMred1, thick] (2 * \a, 3 * \a) -- (2 * \a, 0) -- (0, 0);
+		\draw[BAMblue2, thick] (0, 0) -- (0, 3 * \a);
+		\draw[BAMyellow1, thick] (0, 3 * \a) -- (2 * \a, 3 * \a);
+	\end{scope}
+	% omega 5
+	\begin{scope}[xshift=12 * \a]
+		\draw (0, 0) rectangle (2 * \a, 2 * \a);
+		\draw[dashed, BAMgrad020] (-0.1cm, -0.1cm) rectangle (2.1 * \a, 2.1 * \a) node[pos=1., above] {$\hat\varOmega_{5}$};
+		\draw (0, \a) -- (2 * \a, \a);
+		\draw (\a, 0) -- (\a, 2 * \a);
+		\node at (0.5 * \a, 1.5 * \a) {$\varOmega_{5}$};
+		\draw[BAMred1, thick] (0, 0) -- (2 * \a, 0) -- (2 * \a, 2 * \a);
+		\draw[BAMblue2, thick] (0, 0) -- (0, 2 * \a);
+		\draw[BAMyellow1, thick] (0, 2 * \a) -- (2 * \a, 2 * \a);
+	\end{scope}
+
+\end{tikzpicture}
+\end{document}

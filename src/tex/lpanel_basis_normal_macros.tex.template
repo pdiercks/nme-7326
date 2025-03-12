@@ -1,0 +1,6 @@
+\newcommand{\LpanelNormalRrfMin}{${LPANELNORMALRRFMIN}}
+\newcommand{\LpanelNormalRrfMax}{${LPANELNORMALRRFMAX}}
+\newcommand{\LpanelNormalRrfMean}{${LPANELNORMALRRFMEAN}}
+\newcommand{\LpanelNormalExtMin}{${LPANELNORMALEXTMIN}}
+\newcommand{\LpanelNormalExtMax}{${LPANELNORMALEXTMAX}}
+\newcommand{\LpanelNormalExtMean}{${LPANELNORMALEXTMEAN}}

@@ -1,0 +1,6 @@
+\newcommand{\LpanelMvnRrfMin}{${LPANELMVNRRFMIN}}
+\newcommand{\LpanelMvnRrfMax}{${LPANELMVNRRFMAX}}
+\newcommand{\LpanelMvnRrfMean}{${LPANELMVNRRFMEAN}}
+\newcommand{\LpanelMvnExtMin}{${LPANELMVNEXTMIN}}
+\newcommand{\LpanelMvnExtMax}{${LPANELMVNEXTMAX}}
+\newcommand{\LpanelMvnExtMean}{${LPANELMVNEXTMEAN}}

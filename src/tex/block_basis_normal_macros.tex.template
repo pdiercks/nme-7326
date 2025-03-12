@@ -1,0 +1,6 @@
+\newcommand{\BlockNormalRrfMin}{${BLOCKNORMALRRFMIN}}
+\newcommand{\BlockNormalRrfMax}{${BLOCKNORMALRRFMAX}}
+\newcommand{\BlockNormalRrfMean}{${BLOCKNORMALRRFMEAN}}
+\newcommand{\BlockNormalExtMin}{${BLOCKNORMALEXTMIN}}
+\newcommand{\BlockNormalExtMax}{${BLOCKNORMALEXTMAX}}
+\newcommand{\BlockNormalExtMean}{${BLOCKNORMALEXTMEAN}}

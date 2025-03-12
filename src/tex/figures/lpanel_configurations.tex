@@ -1,0 +1,119 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{%
+	calc,
+	patterns,
+	decorations.pathreplacing,%
+	decorations.pathmorphing%
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\usepackage[active, tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+
+\input{bamcolors.tex}
+
+\newcommand{\DrawTriangle}[3]{% x, y, a
+        \draw[] (#1, #2) -- (#1-#3, #2-#3) -- (#1+#3, #2-#3) -- cycle;
+}
+
+\begin{document}
+
+\begin{tikzpicture}[
+	baseline,
+	fixed/.style={
+		postaction={draw,decorate,decoration={border,angle=-45,
+			    amplitude=0.12cm,segment length=0.5mm}}},
+	]
+	\tikzstyle{every node}=[font=\footnotesize]
+	\def\L{4.0cm}
+	\pgfmathsetmacro\M{4.0-0.2}
+	\pgfmathsetmacro\EPS{0.00001cm}
+	\pgfmathsetmacro\h{\L / 10cm}
+	\draw[step=\h, black, thin] (\EPS, 0) grid (\L, \L);
+	\draw[step=\h, black, thin] (-\L, 0) grid (0, \L);
+	\draw[step=\h, black, thin] (-\L, -\L) grid (0, -\EPS);
+	\DrawTriangle{-\L}{-\L}{0.16cm}
+	\draw[black, line width=.5pt, fixed] (-\L-0.15cm, -\L-0.16cm) --+(0.30cm, 0);
+	\foreach \x in {0.0, 0.4, 0.8, ..., \M}{
+		\DrawTriangle{-\x cm}{-\L}{0.12cm}
+		\draw[black, line width=.5pt, fixed] (-\x cm - 0.15cm, -\L-0.16cm) --+(0.3cm, 0.0);
+	}
+	\draw[thick, stealth-] (\L-\h cm, 0) -- +(0, - 2.5 * \h) coordinate (F) node [right] {\normalsize$F, \hat{u}$};
+    \draw[thick, stealth-] (\L-\h cm/2 , 0) -- +(0, - 1.25 * \h);
+    \draw[thick, stealth-] (\L-\h cm - \h cm/2 , 0) -- +(0, - 1.25 * \h);
+    \draw[thick] (\L, 0) -- (F);
+    \draw[thick] (\L-\h cm-\h cm, 0) -- (F);
+
+	\def\homneu{BAMyellow1}% configuration color
+	\def\mixed{BAMred1}%
+	\foreach \x in {0, 1, ..., 8}{
+		\foreach \y in {1, 2, ..., 8}{
+			\draw[fill=BAMgrad020] (\x * \h, \y * \h) rectangle +(\h, \h);
+		}
+	}
+	\foreach \x in {1, 2, ..., 9}{
+		\foreach \y in {0, 1, ..., 8}{
+			\draw[fill=BAMgrad020] (-\x * \h, \y * \h) rectangle +(\h, \h);
+		}
+	}
+	\foreach \x in {2, 3, ..., 9}{
+		\foreach \y in {0, 1, ..., 9}{
+			\draw[fill=BAMgrad020] (-\x * \h, -\y * \h) rectangle +(\h, \h);
+		}
+	}
+	\draw[fill=BAMgrad020] (0, 3 * \h) rectangle +(\h, \h) node[midway] {};
+	\foreach \x in {2, 3, ..., 9}{
+		\draw[fill=BAMblue1] (-\x * \h, -10 * \h) rectangle +(\h, \h);
+	}
+	\foreach \y in {-9, -8, ..., 9}{
+		\draw[fill=\homneu] (-10 * \h, \y * \h) rectangle +(\h, \h);
+	}
+	\foreach \x in {-9, -8, ..., 8}{
+		\draw[fill=\homneu] (\x * \h, 9 * \h) rectangle +(\h, \h);
+	}
+	\foreach \x in {0, 1, ..., 8}{
+		\draw[fill=\homneu] (\x * \h, 0 * \h) rectangle +(\h, \h);
+	}
+	\foreach \y in {-9, -8, ..., 0}{
+		\draw[fill=\homneu] (-\h, \y*\h) rectangle +(\h, \h);
+	}
+	\foreach \y in {1, 2, ..., 8}{
+		\draw[fill=\homneu] (9 * \h, \y*\h) rectangle +(\h, \h);
+	}
+
+
+	\draw[fill=\homneu] (0, 0) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (5 * \h, 0) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (-1 * \h, -5 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (-1 * \h, -1 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (-1 * \h, 0 * \h) rectangle +(\h, \h) node[midway] {};
+
+    % inhomogeneus neumann
+	\draw[fill=\homneu] (7 * \h, 0) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=BAMred1] (8 * \h, 0) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=BAMred1] (9 * \h, 0) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (9 * \h, 1 * \h) rectangle +(\h, \h) node[midway] {};
+
+    % homogeneus neumann
+	\draw[fill=\homneu] (9 * \h, 5 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (9 * \h, 9 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (0, 9 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (-10 * \h, 9 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=\homneu] (-10 * \h, 0 * \h) rectangle +(\h, \h) node[midway] {};
+
+    % homogeneous dirichlet
+	\draw[fill=BAMblue1] (-10 * \h, -10 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=BAMblue1] (-5 * \h, -10 * \h) rectangle +(\h, \h) node[midway] {};
+	\draw[fill=BAMblue1] (-1 * \h, -10 * \h) rectangle +(\h, \h) node[midway] {};
+
+	\node at (0.0, -2.8) {};% pseudonode necessary for alignment
+	% \draw (current bounding box.south east) rectangle (current bounding box.north west);
+\end{tikzpicture}
+
+\end{document}

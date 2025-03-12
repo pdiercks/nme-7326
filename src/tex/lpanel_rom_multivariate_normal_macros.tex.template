@@ -1,0 +1,4 @@
+\newcommand{\LpanelMvnRomNdofs}{${LPANELMVNROMNDOFS}}
+\newcommand{\LpanelMvnRomMaxModes}{${LPANELMVNROMMAXMODES}}
+\newcommand{\LpanelMvnRomAssembly}{${LPANELMVNROMASSEMBLY}}
+\newcommand{\LpanelMvnRomSolve}{${LPANELMVNROMSOLVE}}

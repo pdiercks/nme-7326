@@ -1,0 +1,37 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{bm}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\usepackage[active, tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+
+\input{./bamcolors.tex}
+
+\begin{document}
+\begin{tikzpicture}
+	\tikzstyle{every node}=[font=\normalsize]
+	\def\a{0.5cm}
+	\pgfmathsetmacro\Nx{5}
+	\pgfmathsetmacro\Ny{5}
+	% vertical lines
+	\foreach \x in {0, 1, 2, ..., \Nx}{
+		\draw (\x * \a, 0.0)--(\x * \a, \Nx * \a);
+	}
+	% horizontal lines
+	\foreach \y in {0, 1, 2, ..., \Ny}{
+		\draw (0.0, \y * \a)--(\Nx * \a, \y * \a);
+	}
+    % draw dirichlet boundary Σ_D:= \partial\varOmega
+    \draw[BAMred1, thick] (0, 0) -- (\Nx*\a, 0) -- (\Nx*\a, \Nx*\a) -- (0, \Nx*\a) -- cycle;
+
+    \coordinate (S) at (0, \Nx*\a / 2);
+    \path (S) ++(-0.5, 0) coordinate (Sm);
+    \node at (Sm) {\textcolor{BAMred1}{$\varSigma_{\mathrm{D}}$}};
+\end{tikzpicture}
+\end{document}

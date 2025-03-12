@@ -1,0 +1,3 @@
+\newcommand{\BeamFomNdofs}{${BEAMFOMNDOFS}}
+\newcommand{\BeamFomAssembly}{${BEAMFOMASSEMBLY}}
+\newcommand{\BeamFomSolve}{${BEAMFOMSOLVE}}

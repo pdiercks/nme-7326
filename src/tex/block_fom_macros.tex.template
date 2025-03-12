@@ -1,0 +1,3 @@
+\newcommand{\BlockFomNdofs}{${BLOCKFOMNDOFS}}
+\newcommand{\BlockFomAssembly}{${BLOCKFOMASSEMBLY}}
+\newcommand{\BlockFomSolve}{${BLOCKFOMSOLVE}}

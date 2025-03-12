@@ -1,0 +1,23 @@
+\documentclass[12pt]{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\input{./bamcolors.tex}
+
+\begin{document}
+    \begin{tikzpicture}
+        \def\a{3.0cm}
+	\draw[dashed, draw=BAMgrad050] (-0.1, -0.1) rectangle (\a+0.1cm, \a+0.1cm) node[pos=1, BAMgrad050, right] {$\hat\varOmega$};
+	\draw[thick, draw=BAMred1, fill=BAMgrad010] (0, 0) rectangle (\a, \a); 
+	\node[below, BAMred1] at (0, 0) {$\varGamma_{\mu}$};
+        \draw[black!40!white, thick] (\a/3, 0)--(\a/3, \a);
+        \draw[black!40!white, thick] (2 * \a/3, 0)--(2 * \a/3, \a);
+        \draw[black!40!white, thick] (0, \a/3)--(\a, \a/3);
+        \draw[black!40!white, thick] (0, 2 * \a/3)--(\a, 2*\a/3);
+        \begin{scope}[xshift=\a / 3, yshift=\a / 3]
+            \node at (\a/6, \a/6) {\textcolor{BAMblue2}{$\varOmega_i$}};
+            \draw[BAMblue2, dashed] (-0.1, -0.1) rectangle (\a/3+\a/30, \a/3+\a/30);
+        \end{scope}
+
+    \end{tikzpicture}
+\end{document}

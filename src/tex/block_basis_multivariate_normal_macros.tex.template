@@ -1,0 +1,6 @@
+\newcommand{\BlockMvnRrfMin}{${BLOCKMVNRRFMIN}}
+\newcommand{\BlockMvnRrfMax}{${BLOCKMVNRRFMAX}}
+\newcommand{\BlockMvnRrfMean}{${BLOCKMVNRRFMEAN}}
+\newcommand{\BlockMvnExtMin}{${BLOCKMVNEXTMIN}}
+\newcommand{\BlockMvnExtMax}{${BLOCKMVNEXTMAX}}
+\newcommand{\BlockMvnExtMean}{${BLOCKMVNEXTMEAN}}

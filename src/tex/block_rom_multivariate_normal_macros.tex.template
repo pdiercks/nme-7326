@@ -1,0 +1,4 @@
+\newcommand{\BlockMvnRomNdofs}{${BLOCKMVNROMNDOFS}}
+\newcommand{\BlockMvnRomMaxModes}{${BLOCKMVNROMMAXMODES}}
+\newcommand{\BlockMvnRomAssembly}{${BLOCKMVNROMASSEMBLY}}
+\newcommand{\BlockMvnRomSolve}{${BLOCKMVNROMSOLVE}}

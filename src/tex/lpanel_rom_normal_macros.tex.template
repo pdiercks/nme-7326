@@ -1,0 +1,4 @@
+\newcommand{\LpanelNormalRomNdofs}{${LPANELNORMALROMNDOFS}}
+\newcommand{\LpanelNormalRomMaxModes}{${LPANELNORMALROMMAXMODES}}
+\newcommand{\LpanelNormalRomAssembly}{${LPANELNORMALROMASSEMBLY}}
+\newcommand{\LpanelNormalRomSolve}{${LPANELNORMALROMSOLVE}}

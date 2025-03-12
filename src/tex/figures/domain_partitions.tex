@@ -1,0 +1,75 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\input{./bamcolors.tex}
+
+\begin{document}
+\begin{tikzpicture}
+	\begin{scope}[xshift=-0.5 * \textwidth]
+		\pgfmathsetmacro\w{5}
+		\pgfmathsetmacro\h{0.6 * \w}
+		\draw[BAMred1, thick] (0, 0) -- (\w, 0);
+		\draw[BAMred1, thick] (0, \h) -- (\w, \h);
+		\draw[BAMblue2, thick] (\w, 0) -- (\w, \h);
+		\draw[BAMblue2, thick] (0, 0) -- (0, \h);
+		% domain node
+		\node at (\w / 2, \h / 2) {$\varOmega_{\mathrm{gl}}$};
+		% dirichlet
+		\coordinate (L) at (0, \h / 2);
+		\path (L) ++(-0.5, 0) coordinate (LL);
+		\node at (LL) {$\varSigma_{\mathrm{D}}$};
+		\coordinate (R) at (\w, \h / 2);
+		\path (R) ++(+0.5, 0) coordinate (RR);
+		\node at (RR) {$\varSigma_{\mathrm{D}}$};
+		% neumann
+		\coordinate (B) at (\w / 2, 0);
+		\path (B) ++(0, -0.5) coordinate (BB);
+		\node at (BB) {$\varSigma_{\mathrm{N}}$};
+		\coordinate (T) at (\w / 2, \h);
+		\path (T) ++(0, +0.5) coordinate (TT);
+		\node at (TT) {$\varSigma_{\mathrm{N}}$};
+	\end{scope}
+	\begin{scope}[xshift=0.0 * \textwidth]
+		\pgfmathsetmacro\w{5}
+		\pgfmathsetmacro\h{0.6 * \w}
+		\pgfmathsetmacro\Nx{5}
+		\pgfmathsetmacro\Ny{0.6 * \Nx}
+		\pgfmathsetmacro\nx{25}
+		\pgfmathsetmacro\ny{0.6 * \nx}
+		% highlight subdomain
+		\draw[fill, BAMgrad010] (\w / \Nx, \h / \Ny) coordinate (S) rectangle ++(\w / \Nx, \h / \Ny);
+		% fine grid color
+		\def\fc{BAMgrad020}
+		\draw[\fc] (0, 0) rectangle (\w, \h);
+		% vertical lines
+		\foreach \x in {0, 1, 2, ..., \nx}{
+			\draw[\fc] (\x / \nx * \w, 0.0)--(\x / \nx * \w, \h);
+		}
+		% horizontal lines
+		\foreach \y in {0, 1, 2, ..., \ny}{
+			\draw[\fc] (0, \y / \ny * \h)--(\w, \y / \ny * \h);
+		}
+		% coarse grid color
+		\def\cc{BAMblue1}
+		% vertical lines
+		\foreach \x in {0, 1, 2, ..., \Nx}{
+			\draw[\cc] (\x / \Nx * \w, 0.0)--(\x / \Nx * \w, \h);
+		}
+		% horizontal lines
+		\foreach \y in {0, 1, 2, ..., \Ny}{
+			\draw[\cc] (0, \y / \Ny * \h)--(\w, \y / \Ny * \h);
+		}
+		% annotate subdomain
+		\path (S) ++(\w / \Nx / 2, \w / \Nx / 2) coordinate (Scenter);
+		\node at (Scenter) {$\varOmega_i$};
+		\node[below = \w / \Nx / 2 of Scenter] (bottom) {$\varGamma^i_1$};
+		\node[right = \w / \Nx / 2 of Scenter] (right) {$\varGamma^i_2$};
+		\node[above = \w / \Nx / 2 of Scenter] (top) {$\varGamma^i_3$};
+		\node[left = \w / \Nx / 2 of Scenter] (left) {$\varGamma^i_4$};
+	\end{scope}
+\end{tikzpicture}
+\end{document}

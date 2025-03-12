@@ -1,0 +1,6 @@
+\newcommand{\BeamNormalRrfMin}{${BEAMNORMALRRFMIN}}
+\newcommand{\BeamNormalRrfMax}{${BEAMNORMALRRFMAX}}
+\newcommand{\BeamNormalRrfMean}{${BEAMNORMALRRFMEAN}}
+\newcommand{\BeamNormalExtMin}{${BEAMNORMALEXTMIN}}
+\newcommand{\BeamNormalExtMax}{${BEAMNORMALEXTMAX}}
+\newcommand{\BeamNormalExtMean}{${BEAMNORMALEXTMEAN}}

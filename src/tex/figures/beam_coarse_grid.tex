@@ -1,0 +1,62 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{bm}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\usepackage[active, tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2mm}
+
+\input{./bamcolors.tex}
+
+\begin{document}
+\begin{tikzpicture}
+	\tikzstyle{every node}=[font=\normalsize]
+	\def\a{0.35cm}
+	\pgfmathsetmacro\N{5}
+	\pgfmathsetmacro\Nx{6 * \N}
+	\pgfmathsetmacro\L{\Nx * \a}
+	% vertical lines
+	\foreach \x in {0, 1, 2, ..., \Nx}{
+		\draw (\x * \a, 0.0)--(\x * \a, \N * \a);
+	}
+	% horizontal lines
+	\foreach \y in {0, 1, 2, ..., \N}{
+		\draw (0.0, \y * \a)--(\Nx * \a, \y * \a);
+	}
+	\foreach \x in {1, 2, ..., 28}{
+		\foreach \y in {1, 2, 3}{
+			\draw[fill=BAMgrad020] (\x * \a, \y * \a) rectangle ++(\a, \a);
+	}
+}
+	% inner 
+	\draw[fill=BAMgrad020] (\a * \Nx / 2, \a * \N - 3 * \a) rectangle ++ (\a, \a) node[midway] {};
+
+	% homogeneous dirichlet left
+	\draw[fill=BAMblue1] (0, 0) rectangle ++(\a, \a) node[midway] {$1$};
+	\draw[fill=BAMblue1] (0, 1 * \a) rectangle ++(\a, \a) node[midway] {$2$};
+	\draw[fill=BAMblue1] (0, 2 * \a) rectangle ++(\a, \a) node[midway] {$3$};
+	\draw[fill=BAMblue1] (0, 3 * \a) rectangle ++(\a, \a) node[midway] {$4$};
+	\draw[fill=BAMblue1] (0, 4 * \a) rectangle ++(\a, \a) node[midway] {$5$};
+
+	% inhomogeneous neumann right
+	\draw[fill=BAMred1] (\L - \a, 0) rectangle ++(\a, \a) node[midway] {};
+	\draw[fill=BAMred1] (\L - \a, 1 * \a) rectangle ++(\a, \a) node[midway] {};
+	\draw[fill=BAMred1] (\L - \a, 2 * \a) rectangle ++(\a, \a) node[midway] {};
+	\draw[fill=BAMred1] (\L - \a, 3 * \a) rectangle ++(\a, \a) node[midway] {};
+	\draw[fill=BAMred1] (\L - \a, 4 * \a) rectangle ++(\a, \a) node[midway] {};
+
+	% neumann bottom-top
+	\foreach \x in {1, 2, ..., 28}{
+		\draw[fill=BAMyellow1] (\a * \x, 0) rectangle ++(\a, \a);
+		\draw[fill=BAMyellow1] (\a * \x, 4 * \a) rectangle ++(\a, \a);
+	}
+	\draw[fill=BAMyellow1] (\a *\Nx / 2, 0) rectangle ++(\a, \a) node[midway] {};
+	\draw[fill=BAMyellow1] (\a *\Nx / 2, 4 * \a) rectangle ++(\a, \a) node[midway] {};
+
+\end{tikzpicture}
+\end{document}

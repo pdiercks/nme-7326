@@ -1,0 +1,4 @@
+\newcommand{\BlockNormalRomNdofs}{${BLOCKNORMALROMNDOFS}}
+\newcommand{\BlockNormalRomMaxModes}{${BLOCKNORMALROMMAXMODES}}
+\newcommand{\BlockNormalRomAssembly}{${BLOCKNORMALROMASSEMBLY}}
+\newcommand{\BlockNormalRomSolve}{${BLOCKNORMALROMSOLVE}}

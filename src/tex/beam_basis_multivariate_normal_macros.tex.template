@@ -1,0 +1,6 @@
+\newcommand{\BeamMvnRrfMin}{${BEAMMVNRRFMIN}}
+\newcommand{\BeamMvnRrfMax}{${BEAMMVNRRFMAX}}
+\newcommand{\BeamMvnRrfMean}{${BEAMMVNRRFMEAN}}
+\newcommand{\BeamMvnExtMin}{${BEAMMVNEXTMIN}}
+\newcommand{\BeamMvnExtMax}{${BEAMMVNEXTMAX}}
+\newcommand{\BeamMvnExtMean}{${BEAMMVNEXTMEAN}}

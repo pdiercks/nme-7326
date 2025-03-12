@@ -1,0 +1,4 @@
+\newcommand{\BeamMvnRomNdofs}{${BEAMMVNROMNDOFS}}
+\newcommand{\BeamMvnRomMaxModes}{${BEAMMVNROMMAXMODES}}
+\newcommand{\BeamMvnRomAssembly}{${BEAMMVNROMASSEMBLY}}
+\newcommand{\BeamMvnRomSolve}{${BEAMMVNROMSOLVE}}
